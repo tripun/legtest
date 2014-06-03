@@ -1,0 +1,50 @@
+
+###################################### 
+; no round off occur 
+2014-05-31 *
+  A		2 eur @$5.01
+  C
+  
+2014-05-31 *
+  A		1 eur @$5.01
+  C
+  
+  
+2014-05-31 *
+  A		1 eur @$5.01
+  C
+  
+ 
+ 
+ ledger -f legtest/test.txt -V bal
+               20.04  A
+              -20.04  C
+--------------------
+                   0
+
+###########################################
+; round off occur and there is space between '@' symbol and lot price
+2014-05-31 *
+  A		2 eur @  $5.01
+  C
+  
+2014-05-31 *
+  A		1 eur @  $5.01
+  C
+  
+  
+2014-05-31 *
+  A		1 eur @  $5.01
+  C
+  
+  
+                   
+                   
+                   
+                   
+ledger -f legtest/test.txt -V bal
+                 $20  A
+                $-20  C
+--------------------
+                   0
+                   
